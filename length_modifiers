@@ -1,0 +1,73 @@
+#include "main.h"
+/**
+*convert_size_nbr - fct to convert to nbr
+*@num: long int
+*@size: int
+*Return: Num
+*/
+long int convert_size_nbr(long int num, int size);
+
+/**
+*convert_size_unsigned - fct to convert to nbr
+*@num: unsigned long int
+*@size: int
+*Return: Num
+*/
+long int convert_size_unsigned(unsigned long int num, int size);
+
+/**
+*handle_len - handle the length modifiers
+*@format: char
+*@i: int
+*Return: Length
+*/
+int handle_len(const char *format, int *i)
+{
+int x, len;
+x = *i + 1;
+len = 0;
+	if (format[x] == 'l')
+	{
+		len = maj;
+	}
+	else if (format[x] == 'h')
+	{
+		len = min;
+	}
+	if (len == 0)
+	{
+		*i = x - 1;
+	}
+	*i = x;
+	return (len);
+}
+
+/**
+*convert_size_nbr - fct to convert to nbr
+*@num: long int
+*@size: int
+*Return: Num
+*/
+long int convert_size_nbr(long int num, int size)
+{
+if (size == min)
+	return (num);
+else if (size == maj)
+	return ((short)num);
+return ((int)num);
+}
+
+/**
+*convert_size_unsigned - fct to convert to nbr
+*@num: unsigned long int
+*@size: int
+*Return: Num
+*/
+long int convert_size_unsigned(unsigned long int num, int size)
+{
+if (size == maj)
+	return (num);
+else if (size == min)
+	return ((unsigned short)num);
+return ((unsigned int)num);
+}
