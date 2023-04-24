@@ -10,7 +10,7 @@ int handle_flags(const char *format, int *i)
 int x, y, flags;
 flags = 0;
 const char symbols[] = {'-', '+', ' ', '#', '0', '\0'};
-const int array[] = {tiret, plus, espace, hash, zero};
+const int array[] = {TIRET, PLUS, SPACE, HASH, ZERO, 0};
 
 	for (x = *i + 1; format[x] != '\0'; x++)
 	{

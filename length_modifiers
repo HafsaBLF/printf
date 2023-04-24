@@ -28,11 +28,11 @@ x = *i + 1;
 len = 0;
 	if (format[x] == 'l')
 	{
-		len = maj;
+		len = MAJ;
 	}
 	else if (format[x] == 'h')
 	{
-		len = min;
+		len = MIN;
 	}
 	if (len == 0)
 	{
@@ -50,9 +50,9 @@ len = 0;
 */
 long int convert_size_nbr(long int num, int size)
 {
-if (size == min)
+if (size == MIN)
 	return (num);
-else if (size == maj)
+else if (size == MAJ)
 	return ((short)num);
 return ((int)num);
 }
@@ -65,9 +65,9 @@ return ((int)num);
 */
 long int convert_size_unsigned(unsigned long int num, int size)
 {
-if (size == maj)
+if (size == MIN)
 	return (num);
-else if (size == min)
+else if (size == MIN)
 	return ((unsigned short)num);
 return ((unsigned int)num);
 }
