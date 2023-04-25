@@ -9,8 +9,8 @@ int _printf(const char *format, ...);
 #define TIRET 1
 #define PLUS 2
 #define ZERO 4
-#define HASH 5
-#define SPACE 6
+#define HASH 8
+#define SPACE 16
 int handle_flags(const char *format, int *i);
 int handle_length(const char *format, int *i);
 int handle_precision(const char *format, int *i, ...);
