@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_unsigned - Print an unsigned nbr
+ * print_unsgnd - Print an unsgnd nbr
   * @types: arg
  * @buffer: array
  * @flags:  int
@@ -10,7 +10,7 @@
  * @len: int
  * Return: Nbr of chars printed
  */
-int print_unsigned(va_list types, char buffer[],
+int print_unsgnd(va_list types, char buffer[],
 	int flags, int width, int precision, int len)
 {
 	int i = BUFF_SIZE - 2;
