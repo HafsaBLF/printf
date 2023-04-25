@@ -34,4 +34,44 @@ typedef struct format format_t;
 long int convert_size_nbr(long int num, int size);
 long int convert_size_unsigned(unsigned long int num, int size);
 int handle_len(const char *format, int *i);
+int print_char(va_list types, char buffer[],
+int flags, int width, int precision, int len);
+int print_string(va_list types, char buffer[],
+	int flags, int width, int precision, int len);
+int print_pourcentage(va_list types, char buffer[],
+	int flags, int width, int precision, int len);
+int print_int(va_list types, char buffer[],
+	int flags, int width, int precision, int len);
+int print_binary(va_list types, char buffer[],
+	int flags, int width, int precision, int len);
+int print_unsigned(va_list types, char buffer[],
+	int flags, int width, int precision, int len);
+int print_octal(va_list types, char buffer[],
+	int flags, int width, int precision, int len);
+int print_hexadecimal(va_list types, char buffer[],
+	int flags, int width, int precision, int len);
+int print_hexa_upper(va_list types, char buffer[],
+	int flags, int width, int precision, int len);
+int print_hexa(va_list types, char map_to[],
+char buffer[], int flags, char flag_ch, int width, int precision, int len);
+int print_non_printable(va_list types, char buffer[],
+	int flags, int width, int precision, int len);
+int print_pointer(va_list types, char buffer[],
+	int flags, int width, int precision, int len);
+int print_reverse(va_list types, char buffer[],
+	int flags, int width, int precision, int len);
+int print_rot13string(va_list types, char buffer[],
+	int flags, int width, int precision, int len);
+int handle_char(char c, char buffer[],
+	int flags, int width, int precision, int len);
+int write_number(int is_positive, int i, char buffer[],
+	int flags, int width, int precision, int len);
+int write_num(int i, char buffer[], int flags, int width, int precision,
+	int length, char padd, char extra_c);
+int write_pointer(char buffer[], int i, int length,
+	int width, int flags, char padd, char extra_c, int padd_start);
+int write_unsigned(int is_negative, int i, char buffer[],
+	int flags, int width, int precision, int len);
+int _isprintable(char);
+int append_hexa_code(char, char[], int);
 #endif
