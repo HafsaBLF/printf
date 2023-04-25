@@ -26,15 +26,15 @@ int handle_char(char c, char buffer[],
 
 	if (width > 1)
 	{
-		buffer[BUFF_SIZE - 1] = '\0';
+		buffer[BUFFER_SIZE - 1] = '\0';
 		for (i = 0; i < width - 1; i++)
-			buffer[BUFF_SIZE - i - 2] = padd;
+			buffer[BUFFER_SIZE - i - 2] = padd;
 
 		if (flags & TIRET)
 			return (write(1, &buffer[0], 1) +
-					write(1, &buffer[BUFF_SIZE - i - 1], width - 1));
+					write(1, &buffer[BUFFER_SIZE - i - 1], width - 1));
 		else
-			return (write(1, &buffer[BUFF_SIZE - i - 1], width - 1) +
+			return (write(1, &buffer[BUFFER_SIZE - i - 1], width - 1) +
 					write(1, &buffer[0], 1));
 	}
 
@@ -55,7 +55,7 @@ int handle_char(char c, char buffer[],
 int write_number(int _isnegative, int i, char buffer[],
 	int flags, int width, int precision, int len)
 {
-	int length = BUFF_SIZE - i - 1;
+	int length = BUFFER_SIZE - i - 1;
 	char padd = ' ', extra_ch = 0;
 
 	UNUSED(len);
@@ -92,9 +92,9 @@ int write_num(int i, char buffer[],
 {
 	int x, padd_start = 1;
 
-	if (prec == 0 && i == BUFF_SIZE - 2 && buffer[i] == '0' && width == 0)
+	if (prec == 0 && i == BUFFER_SIZE - 2 && buffer[i] == '0' && width == 0)
 		return (0);
-	if (prec == 0 && i == BUFF_SIZE - 2 && buffer[i] == '0')
+	if (prec == 0 && i == BUFFER_SIZE - 2 && buffer[i] == '0')
 		buffer[i] = padd = ' ';
 	if (prec > 0 && prec < length)
 		padd = ' ';
@@ -148,13 +148,13 @@ int write_unsgnd(int _isnegative, int i,
 	char buffer[],
 	int flags, int width, int precision, int len)
 {
-	int length = BUFF_SIZE - i - 1, x = 0;
+	int length = BUFFER_SIZE - i - 1, x = 0;
 	char padd = ' ';
 
 	UNUSED(_isnegative);
 	UNUSED(len);
 
-	if (precision == 0 && i == BUFF_SIZE - 2 && buffer[i] == '0')
+	if (precision == 0 && i == BUFFER_SIZE - 2 && buffer[i] == '0')
 		return (0);
 
 	if (precision > 0 && precision < length)
@@ -242,5 +242,5 @@ int write_pointer(char buffer[], int i, int length,
 	buffer[--i] = '0';
 	if (extra_c)
 		buffer[--i] = extra_c;
-	return (write(1, &buffer[i], BUFF_SIZE - i - 1));
+	return (write(1, &buffer[i], BUFFER_SIZE - i - 1));
 }
