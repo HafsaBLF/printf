@@ -14,15 +14,15 @@ int _isdigit(char c);
  */
 int handle_width(const char *format, int *i, ...)
 {
-int x, y, width;
-width = 0;
+int x, width;
 va_list list;
+width = 0;
 	for (x = *i + 1; format[x] != '\0'; x++)
 	{
 		if (_isdigit(format[x]))
 		{
 			width *= 10;
-			width += forma[x] - 0;
+			width += format[x] - 0;
 		}
 		else if (format[x] == '*')
 		{
@@ -42,7 +42,7 @@ va_list list;
 */
 int _isdigit(char c)
 {
-	if (c >= '0' && c <= '9' )
+	if (c >= '0' && c <= '9')
 		return (-1);
 	return (0);
 }

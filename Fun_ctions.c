@@ -113,7 +113,7 @@ int print_hexa_upper(va_list types, char buffer[],
  *@map_to : arg
  * @buffer: array
  * @flags:  int
-*@ flag_ch : char
+ *@flag_ch: char
  * @width: int
  * @precision: int
  * @len: int

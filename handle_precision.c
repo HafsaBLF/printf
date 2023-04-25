@@ -8,10 +8,10 @@
 int handle_precision(const char *format, int *i, ...)
 {
 int x, precision;
+va_list list;
 x = *i + 1;
 precision = -1;
-va_list list;
-	if (fortmat[x] != '.')
+	if (format[x] != '.')
 	{
 		return (precision);
 	}
