@@ -30,15 +30,16 @@ int print_char(va_list types, char buffer[],
 int print_string(va_list types, char buffer[],
 	int flags, int width, int precision, int len)
 {
-int length = 0, i;
-	length = 0;
-	char *str = va_arg(types, char *);
+char *str;
+int length, i;
+length = 0;
 
 	UNUSED(buffer);
 	UNUSED(flags);
 	UNUSED(width);
 	UNUSED(precision);
 	UNUSED(len);
+str = va_arg(types, char *);
 	if (str == NULL)
 	{
 		str = "(null)";
@@ -48,10 +49,8 @@ int length = 0, i;
 
 	while (str[length] != '\0')
 		length++;
-
 	if (precision >= 0 && precision < length)
 		length = precision;
-
 	if (width > length)
 	{
 		if (flags & TIRET)
