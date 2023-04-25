@@ -106,17 +106,17 @@ int print_pourcentage(va_list types, char buffer[],
 int print_int(va_list types, char buffer[],
 	int flags, int width, int precision, int len)
 {
-	int i = BUFF_SIZE - 2;
+	int i = BUFFER_SIZE - 2;
 	int _isnegative = 0;
 	long int n = va_arg(types, long int);
 	unsigned long int num;
 
-	n = convert_size_number(n, size);
+	n = convert_size_nbr(n, len);
 
 	if (n == 0)
 		buffer[i--] = '0';
 
-	buffer[BUFF_SIZE - 1] = '\0';
+	buffer[BUFFER_SIZE - 1] = '\0';
 	num = (unsigned long int)n;
 
 	if (n < 0)
