@@ -8,12 +8,12 @@
 long int convert_size_nbr(long int num, int size);
 
 /**
-*convert_size_unsigned - fct to convert to nbr
+*convert_size_unsgnd - fct to convert to nbr
 *@num: unsigned long int
 *@size: int
 *Return: Num
 */
-long int convert_size_unsigned(unsigned long int num, int size);
+long int convert_size_unsgnd(unsigned long int num, int size);
 
 /**
 *handle_len - handle the length modifiers
@@ -58,12 +58,12 @@ return ((int)num);
 }
 
 /**
-*convert_size_unsigned - fct to convert to nbr
+*convert_size_unsgnd - fct to convert to nbr
 *@num: unsigned long int
 *@size: int
 *Return: Num
 */
-long int convert_size_unsigned(unsigned long int num, int size)
+long int convert_size_unsgnd(unsigned long int num, int size)
 {
 if (size == MIN)
 	return (num);
