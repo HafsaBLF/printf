@@ -1,6 +1,7 @@
+#include <stdio.h>
 #include "main.h"
 
-void print_buffer(char buffer[], int *buff_ind);
+void print_buffer(const char *format, va_list list, int *i);
 
 /**
  * _printf - Printf function
@@ -9,42 +10,27 @@ void print_buffer(char buffer[], int *buff_ind);
  */
 int _printf(const char *format, ...)
 {
-int i, printed, printed_chars, flags, width, precision, len, buff;
+int i, printed_char;
 va_list list;
-char buffer[BUFFER_SIZE];
 
-printed = printed_chars = buff = 0;
+i = count = 0;
+	va_start(list, format);
 	if (format == NULL)
 		return (-1);
 
-	va_start(list, format);
-
-	for (i = 0; format && format[i] != '\0'; i++)
+	for (i = 0; *(format + i) != '\0'; i++)
 	{
-		if (format[i] != '%')
+		if (*(format + i) == '%')
 		{
-			buffer[buff++] = format[i];
-			if (buff == BUFFER_SIZE)
-				print_buffer(buffer, &buff);
-			printed_chars++;
+			if (*(format + i) == '\0')
+				return (-1);
+			printed_chars += print_buffer(format, list, &i);
 		}
 		else
 		{
-			print_buffer(buffer, &buff);
-			flags = handle_flags(format, &i);
-			width = handle_width(format, &i, list);
-			precision = handle_precision(format, &i, list);
-			len = handle_len(format, &i);
-			++i;
-			printed = handle_print(format, &i, list, buffer,
-				flags, width, precision, len);
-			if (printed == -1)
-				return (-1);
-			printed_chars += printed;
+			_putchar(*(format + i));
 		}
 	}
-
-	print_buffer(buffer, &buff);
 
 	va_end(list);
 
@@ -53,13 +39,50 @@ printed = printed_chars = buff = 0;
 
 /**
  * print_buffer - Prints the contents of the buffer if it exist
- * @buffer: Array of chars
- * @buff: Index at which to add next char, represents the length.
+ * @format: Array of chars
+ * @list: Index at which to add next char, represents the length.
+ * @i: int
  */
-void print_buffer(char buffer[], int *buff)
+void print_buffer(const char *format, va_list list, int *i)
 {
-	if (*buff > 0)
-		write(1, &buffer[0], *buff);
-
-	*buff = 0;
+int i, j;
+char *x, *y = "(null)";
+int res = 0;
+	switch (*(format + *i + 1)
+			{
+			case 's':
+			x = va_arg(list, char *);
+			if (x == NULL)
+			{
+			for (i = 0; *(y + i) != '\0'; i++)
+			{
+			_putchar(*(y + i));
+			res++;
+			}
+			}
+			else
+			{
+			for (j = 0; (x[j]) != '\0'; j++)
+			{
+			_putchar(x[j]);
+			res++;
+			}
+			}
+			break;
+			case 'c':
+			_putchar(va_arg(list; int));
+			res++;
+			break;
+			case '%':
+			_putchar(format[*i]);
+			res++;
+			break;
+			default:
+			_putchar(format[*i]);
+			res++;
+			*i -= 1;
+			break;
+			}
+	*i += 1;
+			return (res);
 }
