@@ -20,7 +20,7 @@ format_t format_types[] = {
 	{'c', print_char}, {'s', print_string},
 	{'%', print_pourcentage}, {'i', print_int},
 	{'d', print_int}, {'b', print_binary},
-	{'u', print_unsigned}, {'o', print_octal},
+	{'u', print_unsgnd}, {'o', print_octal},
 	{'x', print_hexadecimal}, {'X', print_hexa_upper},
 	{'p', print_pointer}, {'S', print_non_printable},
 	{'r', print_reverse}, {'R', print_rot13},

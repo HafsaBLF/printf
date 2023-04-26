@@ -31,7 +31,7 @@ struct format
 	int (*fn)(va_list, char[], int, int, int, int);
 };
 typedef struct format format_t;
-long int convert_size_nbr(long int num, int size);
+long int convert_size_nbr(long int num, int len);
 long int convert_size_unsgnd(unsigned long int num, int size);
 int handle_len(const char *format, int *i);
 int print_char(va_list types, char buffer[],
@@ -44,7 +44,7 @@ int print_int(va_list types, char buffer[],
 	int flags, int width, int precision, int len);
 int print_binary(va_list types, char buffer[],
 	int flags, int width, int precision, int len);
-int print_unsigned(va_list types, char buffer[],
+int print_unsgnd(va_list types, char buffer[],
 	int flags, int width, int precision, int len);
 int print_octal(va_list types, char buffer[],
 	int flags, int width, int precision, int len);
