@@ -29,7 +29,7 @@ for (i = 0; format && format[i] != '\0'; i++)
 		print_buffer(buffer, &buff);
 		flags = handle_flags(format, &i);
 		width = handle_width(format, &i, list);
-		precision = handle_precision(format, &i, list)
+		precision = handle_precision(format, &i, list);
 		len = handle_len(format, &i);
 		++i;
 		printed = handle_print(format, &i, list, buffer,
