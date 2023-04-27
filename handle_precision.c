@@ -3,12 +3,12 @@
 *handle_precision - fct to handle precision
 *@format: char
 *@i: int
+*@list: arg
 *Return: precision
 */
-int handle_precision(const char *format, int *i, ...)
+int handle_precision(const char *format, int *i, va_list list)
 {
 int x, precision;
-va_list list;
 x = *i + 1;
 precision = -1;
 	if (format[x] != '.')
@@ -29,7 +29,8 @@ precision = -1;
 			precision = va_arg(list, int);
 			break;
 		}
-		break;
+		else
+			break;
 	}
 	*i = x - 1;
 	return (precision);

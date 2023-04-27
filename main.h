@@ -13,11 +13,11 @@ int _printf(const char *format, ...);
 #define SPACE 16
 int handle_flags(const char *format, int *i);
 int handle_length(const char *format, int *i);
-int handle_precision(const char *format, int *i, ...);
+int handle_precision(const char *format, int *i, va_list list);
 int handle_print(const char *format, int *i, va_list list, char buffer[],
 		int flags, int width, int precision, int len);
 int _isdigit(char c);
-int handle_width(const char *format, int *i, ...);
+int handle_width(const char *format, int *i, va_list list);
 #define MIN 1
 #define MAJ 2
 /**
@@ -32,7 +32,7 @@ struct format
 };
 typedef struct format format_t;
 long int convert_size_nbr(long int num, int len);
-long int convert_size_unsgnd(unsigned long int num, int size);
+long int convert_size_unsgnd(unsigned long int num, int len);
 int handle_len(const char *format, int *i);
 int print_char(va_list types, char buffer[],
 int flags, int width, int precision, int len);

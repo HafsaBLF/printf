@@ -35,3 +35,45 @@ int append_hexa_code(char ascii_code, char buffer[], int i)
 
 	return (3);
 }
+
+/**
+*_isdigit - print only nbr
+*@c: char
+*Return: digit
+*/
+int _isdigit(char c)
+{
+	if (c >= '0' && c <= '9')
+		return (-1);
+	return (0);
+}
+
+/**
+*convert_size_nbr - fct to convert to nbr
+*@num: long int
+*@size: int
+*Return: Num
+*/
+long int convert_size_nbr(long int num, int size)
+{
+if (size == MAJ)
+	return (num);
+else if (size == MIN)
+	return ((short)num);
+return ((int)num);
+}
+
+/**
+*convert_size_unsgnd - fct to convert to nbr
+*@num: unsigned long int
+*@size: int
+*Return: Num
+*/
+long int convert_size_unsgnd(unsigned long int num, int size)
+{
+if (size == MAJ)
+	return (num);
+else if (size == MIN)
+	return ((unsigned short)num);
+return ((unsigned int)num);
+}
